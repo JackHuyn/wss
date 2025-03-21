@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwtgtcplskm52"]
+
+[ext_resource type="Script" path="res://3D_chess/square.gd" id="1_r281r"]
+[ext_resource type="Texture2D" uid="uid://dmxrx3d7124oh" path="res://textures/square_overlays/dot.png" id="2_fb4fm"]
+[ext_resource type="Texture2D" uid="uid://wm0u7n5txl7l" path="res://textures/square_overlays/corner.png" id="2_y6eqc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhu1w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dvln"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ilja"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_fb4fm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nd56v"]
+material = SubResource("StandardMaterial3D_0ilja")
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3nl6"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_y6eqc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_85p6m"]
+material = SubResource("StandardMaterial3D_m3nl6")
+size = Vector2(1, 1)
+
+[node name="Square2" type="Node3D"]
+script = ExtResource("1_r281r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_bhu1w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_2dvln")
+
+[node name="can_go_overlay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+visible = false
+mesh = SubResource("PlaneMesh_nd56v")
+
+[node name="ca_capture_overlay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+visible = false
+mesh = SubResource("PlaneMesh_85p6m")

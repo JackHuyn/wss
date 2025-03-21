@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://dk03ykr4fcnbm"]
+
+[ext_resource type="Script" path="res://3D_chess/main.gd" id="1_k46rv"]
+[ext_resource type="PackedScene" uid="uid://b7w6gs1wn2pdy" path="res://3D_chess/board.tscn" id="2_vf6dl"]
+[ext_resource type="PackedScene" uid="uid://dquo50l1eldml" path="res://3D_chess/attack_board.tscn" id="3_uuum2"]
+[ext_resource type="PackedScene" uid="uid://t42ufsbhlyvc" path="res://3D_chess/piece.tscn" id="4_f7jjj"]
+[ext_resource type="Script" path="res://addons/orbit-controls/orbit-controls.gd" id="5_3oan6"]
+[ext_resource type="PackedScene" uid="uid://dufg8uqpvds1j" path="res://sound_effects.tscn" id="6_6l6pi"]
+[ext_resource type="Shader" path="res://env_shaders/star_field.gdshader" id="7_bq4fd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7ts2"]
+shader = ExtResource("7_bq4fd")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_c07le"]
+sky_material = SubResource("ShaderMaterial_v7ts2")
+
+[sub_resource type="Environment" id="Environment_dex1g"]
+background_mode = 2
+sky = SubResource("Sky_c07le")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.8
+tonemap_mode = 3
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_k46rv")
+board_prefab = ExtResource("2_vf6dl")
+attack_board_prefab = ExtResource("3_uuum2")
+camera = NodePath("Camera3D")
+piece_prefab = ExtResource("4_f7jjj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.63091, 8.9891)
+
+[node name="OrbitControls" type="Node3D" parent="."]
+script = ExtResource("5_3oan6")
+_camera = NodePath("../Camera3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.205009, 0.97876, 0, -0.97876, 0.205009, 0, 3.52663, 0)
+
+[node name="SoundEffects" parent="." instance=ExtResource("6_6l6pi")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dex1g")

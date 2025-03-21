@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt183pfp8qcnc"]
+
+[ext_resource type="Script" path="res://peice_meshs/2D/mesh.gd" id="1_qrxwq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eadxl"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+uv2_scale = Vector3(3, 3, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ydy1"]
+material = SubResource("StandardMaterial3D_eadxl")
+size = Vector2(1, 1)
+
+[node name="2dMesh" type="Node3D"]
+script = ExtResource("1_qrxwq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8ydy1")

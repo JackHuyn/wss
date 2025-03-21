@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dquo50l1eldml"]
+
+[ext_resource type="Script" path="res://3D_chess/attack_board.gd" id="1_8tsxd"]
+
+[node name="AttackBoard" type="Node3D"]
+script = ExtResource("1_8tsxd")

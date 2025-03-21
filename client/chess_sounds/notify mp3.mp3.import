@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr5ybge8punlk"
+path="res://.godot/imported/notify mp3.mp3-d02115ddccf3845f385bf1754a72cfce.mp3str"
+
+[deps]
+
+source_file="res://chess_sounds/notify mp3.mp3"
+dest_files=["res://.godot/imported/notify mp3.mp3-d02115ddccf3845f385bf1754a72cfce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
