@@ -13,7 +13,7 @@ const PORT = 9010
 
 #Game Data
 var code 
-var myID = 0
+var myID 
 var oppId 
 var oppName
 var myTurn
@@ -58,6 +58,7 @@ var childScene
 func _ready() -> void:	
 	checkmate = false
 	inCheck = false
+	myID = 0
 	code = 0
 	oppId = 0
 	# make a new function to handle server connection
@@ -149,15 +150,11 @@ func startGame(gameTypeFromServer):
 	
 		#$Camera3D.position.z = -7.564
 		#$Camera3D.rotate_y(deg_to_rad(180))
-	
 	$GameControls/PanelContainer/VBoxContainer/HBoxContainer/MyNameLabel.text = theUsername
-	
 	GameControlsVisible(true)
 	$myTimer.start()
 	$oppsTimer.start()
 	flipTimers()
-
-
 
 
 
@@ -270,7 +267,7 @@ func theUsernamePasser(theName):
 	
 	
 func _on_connected_to_server():
-	var myID = multiplayer.get_unique_id()
+	myID = multiplayer.get_unique_id()
 	print("Connected! UID is ", myID)
 
 func _on_server_disconnected():
@@ -314,8 +311,6 @@ func createNewGame(_userID):
 func joinGame(_id, _code, _name, _wannaWatch):
 	pass
 	
-
-
 
 
 func GameControlsVisible(isOn): 

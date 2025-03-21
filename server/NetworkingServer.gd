@@ -45,12 +45,16 @@ func createNewGame(userID, username, time, gameType):
 	var curGameCode = 0
 	curGameCode = randomCodeGen()
 	rpc_id(userID, "getCode", curGameCode)
+	print("Gernerating game with code: " + str(curGameCode))
 
 	if randomPieceColor() == 0: #make the player the white pieces
 		matches[curGameCode] = {"white" : userID, "whiteName" : username,  "black" : -1, "blackName" : -1, "time": time, "gameType" : gameType}
 	else: #make the player the black pieces
 		matches[curGameCode] = {"white" : -1, "whiteName" : -1,  "black" : userID, "blackName" : username, "time": time, "gameType" : gameType}
 	
+	# Debug
+	print(matches[curGameCode])
+	#
 	print("-----------------------------------------------")
 	print("%s Started a New Game" %str(username))	
 	print("Connected Players: %s" %str(connected_peer_ids.size()))
@@ -67,6 +71,11 @@ func joinGame(userID, gameCode, username, _wantsToWatch):
 			if matches[gameCode]["white"] == -1: #if other user is black pieces make this one white pieces
 				matches[gameCode]["white"] = userID
 				matches[gameCode]["whiteName"] = username
+				
+				# Debug
+				print("Black!!!")
+				print(matches[gameCode])
+				#
 				
 				print("-----------------------------------------------")
 				print(str(username) + " is now playing against " + str(matches[gameCode]["blackName"]) + " in a " + str(matches[gameCode]["gameType"]) + " game")
@@ -87,6 +96,9 @@ func joinGame(userID, gameCode, username, _wantsToWatch):
 				if matches[gameCode]["black"] == -1:
 					matches[gameCode]["black"] = userID		
 					matches[gameCode]["blackName"] = username
+					
+					print("White!!!")
+					print(matches[gameCode])
 					
 					print("-----------------------------------------------")
 					print(str(username) + " is now playing against " + str(matches[gameCode]["whiteName"]) + " in a " + str(matches[gameCode]["gameType"]) + " game")
@@ -170,6 +182,7 @@ func _on_peer_disconnected(leaving_peer_id : int) -> void:
 func _on_peer_connected(new_peer_id : int) -> void:
 	print("New peer id: "+str(new_peer_id))
 	connected_peer_ids.append(new_peer_id)
+	print("Current player in lobby: " + str(connected_peer_ids.size()))
 
 
 @rpc("any_peer")
