@@ -13,7 +13,7 @@ const PORT = 9010
 
 #Game Data
 var code 
-var myID 
+var myID = 0
 var oppId 
 var oppName
 var myTurn
@@ -59,7 +59,6 @@ func _ready() -> void:
 	checkmate = false
 	inCheck = false
 	code = 0
-	myID = 0
 	oppId = 0
 	# make a new function to handle server connection
 	joinServer()
@@ -84,13 +83,12 @@ func joinServer():
 	print("Connecting To Server ...")	
 	client = WebSocketMultiplayerPeer.new()
 	ip = "127.0.0.1"
-	#ip = "ec2-18-224-56-186.us-east-2.compute.amazonaws.com"	
 	client.create_client("ws://127.0.0.1:9010")	
 	multiplayer.multiplayer_peer = client
+	multiplayer.connected_to_server.connect(_on_connected_to_server)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	
-	myID = client.get_unique_id()
-	print("My userId is ", myID)
+
 
 func joinTheGame(gameCode):
 	wantsToWatch = false
@@ -271,6 +269,9 @@ func theUsernamePasser(theName):
 	$LoadingScreen/PanelContainer/VBoxContainer/SubLabel.text = "Welcome %s" %theUsername
 	
 	
+func _on_connected_to_server():
+	var myID = multiplayer.get_unique_id()
+	print("Connected! UID is ", myID)
 
 func _on_server_disconnected():
 	client.close()

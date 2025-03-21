@@ -1,0 +1,31 @@
+# Godot specific files
+.import/
+export/
+*.godot
+*.gdmeta
+
+# Build folder for all platforms
+bin/
+build/
+*.pdb
+*.obj
+*.dSYM
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# User-specific settings
+*.user
+*.user.* 
+
+# Debugger
+.vscode/
+.idea/
+
+# Godot-generated files
+.mono/
+.tmp/
+.bin/
+.cache/
+
