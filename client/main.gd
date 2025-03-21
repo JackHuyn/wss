@@ -116,7 +116,6 @@ func loadingScreen():
 	loadingScreenVisible(true)
 	
 
-@rpc("any_peer")
 func homePage():
 	homepage = $Homepage
 	homepage.connect("joinGame", joinTheGame.bind())
