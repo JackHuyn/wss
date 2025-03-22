@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwtgtcplskm52"]
 
-[ext_resource type="Script" path="res://3D_chess/square.gd" id="1_r281r"]
+[ext_resource type="Script" uid="uid://bwm6f2d6td8fq" path="res://3D_chess/square.gd" id="1_r281r"]
 [ext_resource type="Texture2D" uid="uid://dmxrx3d7124oh" path="res://textures/square_overlays/dot.png" id="2_fb4fm"]
 [ext_resource type="Texture2D" uid="uid://wm0u7n5txl7l" path="res://textures/square_overlays/corner.png" id="2_y6eqc"]
 

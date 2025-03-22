@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c10jyjqno4uob"]
 
-[ext_resource type="Script" path="res://2D_chess/main.gd" id="1_23xnj"]
+[ext_resource type="Script" uid="uid://dmgb003net4j" path="res://2D_chess/main.gd" id="1_23xnj"]
 [ext_resource type="PackedScene" uid="uid://bvhyqtwf1pnf6" path="res://2D_chess/board.tscn" id="1_n0yl5"]
 [ext_resource type="PackedScene" uid="uid://vnj5jkco10hc" path="res://2D_chess/piece.tscn" id="2_cg80l"]
 

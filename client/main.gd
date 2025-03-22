@@ -84,8 +84,9 @@ func _process(delta):
 func joinServer():
 	print("Connecting To Server ...")	
 	client = WebSocketMultiplayerPeer.new()
-	ip = "wss://127.0.0.1:9010"
-	#ip = "wss://3.82.68.55:9010"
+	client.set_handshake_timeout(3000)
+	#ip = "wss://127.0.0.1:9010"
+	ip = "wss://3.82.68.55:9010"
 	clientCert = load("res://Certificate/client_Cert.crt")
 	tls_opt = TLSOptions.client_unsafe(clientCert)
 	#client.create_client(ip)	

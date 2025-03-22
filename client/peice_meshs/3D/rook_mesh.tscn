@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://vw7rh8d8ekfl"]
 
-[ext_resource type="Script" path="res://peice_meshs/3D/mesh.gd" id="1_dcnxp"]
+[ext_resource type="Script" uid="uid://dsueydcx3hm8n" path="res://peice_meshs/3D/mesh.gd" id="1_dcnxp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4034"]
 resource_name = "Material.003"

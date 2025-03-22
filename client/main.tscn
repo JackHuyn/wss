@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://dnsfdbo20x11q"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ac4mw"]
-[ext_resource type="Script" path="res://homepage.gd" id="2_wrc7y"]
-[ext_resource type="Script" path="res://game_type_button.gd" id="3_rfphj"]
-[ext_resource type="Script" path="res://game_controls.gd" id="4_8dd7g"]
-[ext_resource type="Script" path="res://diconnected_display.gd" id="5_2byf2"]
-[ext_resource type="Script" path="res://loading_screen.gd" id="6_avctf"]
-[ext_resource type="Script" path="res://myTimer.gd" id="6_wy6x3"]
-[ext_resource type="Script" path="res://opps_timer.gd" id="7_uypa0"]
-[ext_resource type="Script" path="res://addons/orbit-controls/orbit-controls.gd" id="9_o1vxs"]
-[ext_resource type="Shader" path="res://env_shaders/star_field.gdshader" id="10_icn6o"]
+[ext_resource type="Script" uid="uid://c4tiaso7uxks" path="res://main.gd" id="1_ac4mw"]
+[ext_resource type="Script" uid="uid://b70mlhmbjlcgi" path="res://homepage.gd" id="2_wrc7y"]
+[ext_resource type="Script" uid="uid://cq5v3v38o7tgq" path="res://game_type_button.gd" id="3_rfphj"]
+[ext_resource type="Script" uid="uid://bx86i73f0ttt6" path="res://game_controls.gd" id="4_8dd7g"]
+[ext_resource type="Script" uid="uid://bmyq4bp1ypypi" path="res://diconnected_display.gd" id="5_2byf2"]
+[ext_resource type="Script" uid="uid://bjnrwecoib3v0" path="res://loading_screen.gd" id="6_avctf"]
+[ext_resource type="Script" uid="uid://ctbqnblj7peaf" path="res://myTimer.gd" id="6_wy6x3"]
+[ext_resource type="Script" uid="uid://di1bn2rxn3juc" path="res://opps_timer.gd" id="7_uypa0"]
+[ext_resource type="Script" uid="uid://b5bofteygttwx" path="res://addons/orbit-controls/orbit-controls.gd" id="9_o1vxs"]
+[ext_resource type="Shader" uid="uid://bvvpr7osovy0k" path="res://env_shaders/star_field.gdshader" id="10_icn6o"]
 
 [sub_resource type="FontVariation" id="FontVariation_v1mjg"]
 
@@ -109,9 +109,9 @@ offset_left = 360.0
 offset_top = 146.0
 offset_right = 554.0
 offset_bottom = 318.0
-theme_override_colors/icon_normal_color = Color(0.197937, 0.197937, 0.197937, 1)
-theme_override_colors/icon_pressed_color = Color(0.637843, 0.637843, 0.637843, 1)
 theme_override_colors/icon_hover_color = Color(0.639216, 0.639216, 0.639216, 1)
+theme_override_colors/icon_pressed_color = Color(0.637843, 0.637843, 0.637843, 1)
+theme_override_colors/icon_normal_color = Color(0.197937, 0.197937, 0.197937, 1)
 toggle_mode = true
 text = "New"
 
@@ -121,9 +121,9 @@ offset_left = 108.0
 offset_top = 145.0
 offset_right = 302.0
 offset_bottom = 317.0
-theme_override_colors/icon_normal_color = Color(0.197937, 0.197937, 0.197937, 1)
-theme_override_colors/icon_pressed_color = Color(0.637843, 0.637843, 0.637843, 1)
 theme_override_colors/icon_hover_color = Color(0.639216, 0.639216, 0.639216, 1)
+theme_override_colors/icon_pressed_color = Color(0.637843, 0.637843, 0.637843, 1)
+theme_override_colors/icon_normal_color = Color(0.197937, 0.197937, 0.197937, 1)
 toggle_mode = true
 text = "Join"
 
@@ -155,6 +155,7 @@ selected = 0
 allow_reselect = true
 item_count = 4
 popup/item_0/text = "10 Minute"
+popup/item_0/id = 0
 popup/item_1/text = "5 Minute"
 popup/item_1/id = 1
 popup/item_2/text = "3 Minute"

@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://dk03ykr4fcnbm"]
 
-[ext_resource type="Script" path="res://3D_chess/main.gd" id="1_k46rv"]
+[ext_resource type="Script" uid="uid://d4asp5yrx34tk" path="res://3D_chess/main.gd" id="1_k46rv"]
 [ext_resource type="PackedScene" uid="uid://b7w6gs1wn2pdy" path="res://3D_chess/board.tscn" id="2_vf6dl"]
 [ext_resource type="PackedScene" uid="uid://dquo50l1eldml" path="res://3D_chess/attack_board.tscn" id="3_uuum2"]
 [ext_resource type="PackedScene" uid="uid://t42ufsbhlyvc" path="res://3D_chess/piece.tscn" id="4_f7jjj"]
-[ext_resource type="Script" path="res://addons/orbit-controls/orbit-controls.gd" id="5_3oan6"]
+[ext_resource type="Script" uid="uid://b5bofteygttwx" path="res://addons/orbit-controls/orbit-controls.gd" id="5_3oan6"]
 [ext_resource type="PackedScene" uid="uid://dufg8uqpvds1j" path="res://sound_effects.tscn" id="6_6l6pi"]
-[ext_resource type="Shader" path="res://env_shaders/star_field.gdshader" id="7_bq4fd"]
+[ext_resource type="Shader" uid="uid://bvvpr7osovy0k" path="res://env_shaders/star_field.gdshader" id="7_bq4fd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v7ts2"]
 shader = ExtResource("7_bq4fd")

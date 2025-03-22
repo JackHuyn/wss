@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dufg8uqpvds1j"]
 
 [ext_resource type="AudioStream" uid="uid://b5a3cnlmmmwya" path="res://chess_sounds/move-self mp3.mp3" id="1_2o50a"]
-[ext_resource type="Script" path="res://sound_effects.gd" id="1_6f0w6"]
+[ext_resource type="Script" uid="uid://b2pcrp4s2rctx" path="res://sound_effects.gd" id="1_6f0w6"]
 [ext_resource type="AudioStream" uid="uid://dp6pio88t4r0o" path="res://chess_sounds/capture mp3.mp3" id="2_lypy3"]
 [ext_resource type="AudioStream" uid="uid://dr5ybge8punlk" path="res://chess_sounds/notify mp3.mp3" id="3_l0su5"]
 [ext_resource type="AudioStream" uid="uid://c6cynlx2lvvls" path="res://chess_sounds/move-check mp3.mp3" id="5_g6h60"]
