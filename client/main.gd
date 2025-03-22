@@ -8,6 +8,7 @@ const SCENE3D = preload("res://3D_chess/3D_chess.tscn")
 
 var client
 var clientCert = X509Certificate.new()
+var tls_opt 
 var ip
 const PORT = 9010
 
@@ -86,7 +87,7 @@ func joinServer():
 	ip = "wss://127.0.0.1:9010"
 	#ip = "wss://3.82.68.55:9010"
 	clientCert = load("res://Certificate/client_Cert.crt")
-	var tls_opt = TLSOptions.client_unsafe(clientCert)
+	tls_opt = TLSOptions.client_unsafe(clientCert)
 	#client.create_client(ip)	
 	client.create_client(ip, tls_opt)	
 	multiplayer.multiplayer_peer = client
