@@ -14,8 +14,13 @@ var url = ""
 # Server generate
 func wss_server():
 	print("Starting server")
+	var serverCert = load("res://X509_Certificate.crt")
+	var serverKey = load("res://X509_Key.key")
+	var tls_opt = TLSOptions.server(serverKey, serverCert)
 	get_tree().set_multiplayer(server, ^"/root/main")
-	server.create_server(PORT)
+	
+	#server.create_server(PORT)
+	server.create_server(PORT,"*", tls_opt)
 	multiplayer.multiplayer_peer = server
 	server.peer_connected.connect(_on_peer_connected)
 	server.peer_disconnected.connect(_on_peer_disconnected)
@@ -31,6 +36,7 @@ func _ready():
 	#enet_server()
 	wss_server()
 	print("Server is up and running.")
+	
 
 func _process(delta: float) -> void:
 	server.poll()

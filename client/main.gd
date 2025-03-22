@@ -83,9 +83,12 @@ func _process(delta):
 func joinServer():
 	print("Connecting To Server ...")	
 	client = WebSocketMultiplayerPeer.new()
-	#ip = "127.0.0.1"
-	ip = "3.82.68.55"
-	client.create_client("ws://"+str(ip)+":"+str(PORT))	
+	ip = "wss://127.0.0.1:9010"
+	#ip = "wss://3.82.68.55:9010"
+	var clientCert = load("res://X509_Certificate.crt")
+	var tls_opt = TLSOptions.client(clientCert)
+	#client.create_client(ip)	
+	client.create_client(ip, tls_opt)	
 	multiplayer.multiplayer_peer = client
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
