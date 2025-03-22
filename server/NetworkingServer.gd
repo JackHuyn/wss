@@ -1,6 +1,8 @@
 extends Node
 var enet = ENetMultiplayerPeer.new()
 var server = WebSocketMultiplayerPeer.new()
+var serverCert = X509Certificate.new()
+var serverKey = CryptoKey.new()
 
 const PORT = 9010
 const maxPlayers = 100
@@ -14,8 +16,8 @@ var url = ""
 # Server generate
 func wss_server():
 	print("Starting server")
-	var serverCert = load("res://X509_Certificate.crt")
-	var serverKey = load("res://X509_Key.key")
+	serverCert = load("res://Certificate/server_Cert.crt")
+	serverKey = load("res://Certificate/server_Key.key")
 	var tls_opt = TLSOptions.server(serverKey, serverCert)
 	get_tree().set_multiplayer(server, ^"/root/main")
 	

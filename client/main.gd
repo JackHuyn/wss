@@ -6,8 +6,8 @@ extends Node3D
 const SCENE2D = preload("res://2D_chess/2D_chess.tscn")
 const SCENE3D = preload("res://3D_chess/3D_chess.tscn")
 
-
-var client 
+var client
+var clientCert = X509Certificate.new()
 var ip
 const PORT = 9010
 
@@ -85,8 +85,8 @@ func joinServer():
 	client = WebSocketMultiplayerPeer.new()
 	ip = "wss://127.0.0.1:9010"
 	#ip = "wss://3.82.68.55:9010"
-	var clientCert = load("res://X509_Certificate.crt")
-	var tls_opt = TLSOptions.client(clientCert)
+	clientCert = load("res://Certificate/client_Cert.crt")
+	var tls_opt = TLSOptions.client_unsafe(clientCert)
 	#client.create_client(ip)	
 	client.create_client(ip, tls_opt)	
 	multiplayer.multiplayer_peer = client
